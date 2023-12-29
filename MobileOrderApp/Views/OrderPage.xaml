@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileOrderApp.Views.OrderPage"
+             Title="OrderPage"
+             BackgroundColor="GhostWhite">
+    <VerticalStackLayout>
+        <Label 
+            Text="Siparişlerim"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+    </VerticalStackLayout>
+
+    <Grid BackgroundColor="GhostWhite" Margin="10,15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <StackLayout Grid.Row="1" BackgroundColor="GhostWhite" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+            <Button Text="Ürünler" WidthRequest="100" Margin="10" Clicked="ProductsButtonClick"/>
+            <Button Text="Siparişlerim" WidthRequest="110" Margin="10" Clicked="OrdersButtonClick"/>
+            <Button Text="Üyelik" WidthRequest="100" Margin="10" Clicked="LoginButtonClick"/>
+            <!-- Diğer Alt Menü Öğeleri -->
+        </StackLayout>
+    </Grid>
+</ContentPage>

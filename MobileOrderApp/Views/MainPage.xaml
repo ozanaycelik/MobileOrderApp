@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="MobileOrderApp.MainPage"
+             BackgroundColor="GhostWhite">
+
+
+    <!--<Grid>
+        --><!-- Grid içindeki satır ve sütun tanımlamaları --><!--
+        <Grid.RowDefinitions>
+            <RowDefinition Height="300" />
+            <RowDefinition Height="300" />
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="300" />
+            <ColumnDefinition Width="200" />
+        </Grid.ColumnDefinitions>
+
+        --><!-- Kutu 1 --><!--
+        <Frame Grid.Row="0" Grid.Column="0" Margin="5,1,10,10" BackgroundColor="LightGray" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" CornerRadius="10" HeightRequest="200" WidthRequest="170">
+            <StackLayout>
+                <StackLayout HeightRequest="80" Orientation="Vertical">
+                    <Label Text="Damla Su Damacana" FontSize="12" />
+                    <Label Text="Fiyat: 17.99" FontSize="10" FontAttributes="Bold" />
+                    <Image Source="damacana1.png" HeightRequest="110" WidthRequest="50" Aspect="AspectFit" />
+                </StackLayout>
+                <StackLayout HeightRequest="160" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+                    <Button Text="-" TextColor="White" FontSize="Caption" HeightRequest="30" WidthRequest="30" VerticalOptions="Center"  HorizontalOptions="End" Clicked="DecreaseQuantityClicked" />
+                    <Label Text="0" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  FontAttributes="Bold" VerticalOptions="Center" WidthRequest="30" HeightRequest="50" HorizontalOptions="Center" x:Name="amountLabel" />
+                    --><!-- entry alanda kontroller-->
+                    <!--TextChanged="amountLabel_TextChanged" Keyboard="Numeric"--><!--
+                    <Button Text="+" TextColor="White" FontSize="Caption" HeightRequest="30" WidthRequest="30" VerticalOptions="Center" HorizontalOptions="End" Clicked="IncreaseQuantityClicked" />
+                </StackLayout>
+            </StackLayout>
+        </Frame>
+    </Grid>-->
+    <Grid BackgroundColor="GhostWhite" Margin="10,15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*" />
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+        <ScrollView>
+    <CollectionView ItemsSource="{Binding Products}">
+        <CollectionView.ItemsLayout>
+            <GridItemsLayout Orientation="Vertical" Span="2" />
+        </CollectionView.ItemsLayout>
+        <CollectionView.ItemTemplate>
+            <DataTemplate>
+                <Frame Margin="5,1,10,10" BackgroundColor="GhostWhite" Padding="10" VerticalOptions="Start" HorizontalOptions="Start" CornerRadius="10" HeightRequest="200" WidthRequest="170">
+                    <StackLayout>
+                        <StackLayout HeightRequest="80" Orientation="Vertical">
+                            <Label Text="{Binding Name}" FontSize="12" />
+                            <Label Text="{Binding Price, StringFormat='Fiyat: {0:C}'}" FontSize="10" FontAttributes="Bold" />
+                            <Image Source="{Binding ImageSource}" HeightRequest="110" WidthRequest="50" Aspect="AspectFit" />
+                        </StackLayout>
+                        <StackLayout HeightRequest="160" Orientation="Horizontal" HorizontalOptions="Center" VerticalOptions="End">
+                            <Button Text="-" TextColor="White" Padding="0" FontSize="15" HeightRequest="30" WidthRequest="30" FontAttributes="Bold" Clicked="DecreaseQuantityClicked" />
+                            <Label Text="{Binding Quantity}" FontSize="15" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"  FontAttributes="Bold" VerticalOptions="Center" WidthRequest="30" HeightRequest="50" HorizontalOptions="Center" />
+                                    <Button Text="+" TextColor="White" Padding="0" FontSize="Caption"  HeightRequest="30" WidthRequest="30" FontAttributes="Bold" Clicked="IncreaseQuantityClicked" />
+                        </StackLayout>
+                    </StackLayout>
+                </Frame>
+            </DataTemplate>
+        </CollectionView.ItemTemplate>
+    </CollectionView>
+    </ScrollView>
+        <StackLayout Grid.Row="1" BackgroundColor="GhostWhite" Orientation="Horizontal" HorizontalOptions="FillAndExpand" VerticalOptions="End">
+            <Button Text="Ürünler" WidthRequest="100" Margin="10" Clicked="ProductsButtonClick"/>
+            <Button Text="Siparişlerim" WidthRequest="110" Margin="10" Clicked="OrdersButtonClick"/>
+            <Button Text="Üyelik" WidthRequest="100" Margin="10" Clicked="LoginButtonClick"/>
+            <!-- Diğer Alt Menü Öğeleri -->
+        </StackLayout>
+    </Grid>
+</ContentPage>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Shell
+    x:Class="MobileOrderApp.AppShell"
+    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    xmlns:local="clr-namespace:MobileOrderApp"
+    Shell.FlyoutBehavior="Disabled"
+    Title="Mobil Sipariş">
+
+    <ShellContent
+        ContentTemplate="{DataTemplate local:MainPage}"
+        Route="MainPage" />
+
+    <ShellSection Title="Giriş Yap" Route="LoginPage">
+        <ShellContent ContentTemplate="{DataTemplate local:Views.LoginPage}"/>
+    </ShellSection>
+    <ShellSection Title="Siparişlerim" Route="OrderPage">
+        <ShellContent ContentTemplate="{DataTemplate local:Views.OrderPage}"/>
+    </ShellSection>
+</Shell>
